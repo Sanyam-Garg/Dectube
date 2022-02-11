@@ -39,8 +39,8 @@ class App extends Component {
     //Get network ID
     const networkID = await web3.eth.net.getId()
     const networkData = DVideo.networks[networkID]
-    if(networkData){
-      const dvideo = new web3.eth.Contract(DVideo.abi, networkData.address)
+//     if(networkData){
+      const dvideo = new web3.eth.Contract(DVideo.abi, "0x8bf281b37F9cDb3c9b926Bd513BF9b29F79912f9")
       this.setState({dvideo})
 
       const videoCount = await dvideo.methods.videoCount().call()
@@ -62,9 +62,9 @@ class App extends Component {
       })
       this.setState({loading: false})
 
-    } else{
-      window.alert('DVideo contract not deployed to detected network')
-    }
+//     } else{
+//       window.alert('DVideo contract not deployed to detected network')
+//     }
     
       
       //Assign dvideo contract to a variable
